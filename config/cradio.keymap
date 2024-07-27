@@ -113,14 +113,14 @@
         numb_layer {
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-            //│          │          │          │          │          │   │  [       │  7       │  8       │  9       │  ]      │
-                &none      &none      &none      &none      &none          &kp LBKT   &kp N7     &kp N8     &kp N9     &kp RBKT
+            //│PROFILE 0 │PROFILE 1 │PROFILE 2 │ CLEAR BT │          │   │  [       │  7       │  8       │  9       │  ]      │
+             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR &none          &kp LBKT   &kp N7     &kp N8     &kp N9     &kp RBKT
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│  GUI     │  ALT     │  CTRL    │  SHIFT   │  , <     │   │  =       │  4       │  5       │  6       │  ;      │
                 &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp COMMA      &kp EQUAL  &kp N4     &kp N5     &kp N6     &kp SCLN
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-            //│          │  RALT    │          │  . >     │          │   │  \       │  1       │  2       │  3       │  `      │
-                &none      &kp RALT   &none      &kp PERIOD &none          &kp BSLH   &kp N1     &kp N2     &kp N3     &kp GRAVE
+            //│  RESET   │Bootloader│   RALT   │  . >     │          │   │  \       │  1       │  2       │  3       │  `      │
+               &sys_reset   &bootloader  &kp RALT  &kp PERIOD &none          &kp BSLH   &kp N1     &kp N2     &kp N3     &kp GRAVE
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &none      &none          &kp MINUS  &kp N0
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -131,13 +131,13 @@
             bindings = <
                 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
                 //│ PG UP    │ HOME     │ UP       │ END      │ INS      │   │          │          │          │          │          │
-                &kp PG_UP  &kp HOME   &kp UP     &kp END    &kp INS         &kp C_BRI_UP &kp C_BRI_DEC &kp C_MUTE &kp C_VOLUME_UP &kp C_VOLUME_DOWN 
+                &kp PG_UP  &kp HOME   &kp UP     &kp END    &kp INS         &none      &none      &none      &none      &none
                 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
                 //│ PG DN    │ LEFT     │ DOWN     │ RIGHT    │ CAPS     │   │ K_APP    │ SHIFT    │ CTRL     │ ALT      │ GUI      │
                 &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp CAPS       &kp K_APP  &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI
                 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-                //│ LCTRL(Z) │ LCTRL(X) │ LCTRL(C) │ LCTRL(V) │ LCTRL(Y) │   │          │LSHFT(LGUI(S))│      │play/pause│          │
-                &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)       &kp RALT      &kp LS(LG(S)) &kp C_PREV &kp C_PP  &kp C_NEXT
+                //│ LCTRL(Z) │ LCTRL(X) │ LCTRL(C) │ LCTRL(V) │ LCTRL(Y) │   │          │LSHFT(LGUI(S))│      │bootloader│ RESET
+                &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Y)       &kp RALT      &kp LS(LG(S)) &none  &bootloader &sys_reset
                 //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                     &kp ENTER  &kp BSPC       &none      &none
                 //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -148,33 +148,16 @@
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
             //│  F12     │  F7      │  F8      │  F9      │  PSCRN   │   │          │          │          │          │          │
-                &kp F12    &kp F7     &kp F8     &kp F9     &kp PSCRN      &none      &none      &none      &none      &none
+                &kp F12    &kp F7     &kp F8     &kp F9     &kp PSCRN    &kp C_BRI_UP &kp C_BRI_DEC &kp C_MUTE &kp C_VOLUME_UP &kp C_VOLUME_DOWN
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│  F11     │  F4      │  F5      │  F6      │  SLCK    │   │  K_APP   │  SHIFT   │  CTRL    │  ALT     │  GUI    │
                 &kp F11    &kp F4     &kp F5     &kp F6     &kp SLCK       &kp K_APP  &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-            //│  F10     │  F1      │  F2      │  F3      │  PAUSE   │   │          │  K_MUTE  │          │  RALT    │          │
-                &kp F10    &kp F1     &kp F2     &kp F3     &kp PAUSE_BREAK &none      &kp K_MUTE &none      &kp RALT   &none
+            //│  F10     │  F1      │  F2      │  F3      │  PAUSE   │   │  RALT    │  K_MUTE  │          │play/pause│          │
+                &kp F10    &kp F1     &kp F2     &kp F3     &kp PAUSE_BREAK &kp RALT   &kp K_MUTE &kp C_PREV &kp C_PP  &kp C_NEXT
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &kp ENTER  &kp BSPC      &none      &none
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
-
-        tri_layer {
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &kp H     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
     };    
