@@ -151,7 +151,7 @@
             //│  F10     │  F1      │  F2      │  F3      │  PAUSE   │   │          │  K_MUTE  │          │  RALT    │          │
                 &kp F10    &kp F1     &kp F2     &kp F3     &kp PAUSE_BREAK &none      &kp K_MUTE &none      &kp RALT   &none
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                                &kp ENTER  &kp BSPC      &lt 5 none      &none
+                                                &kp ENTER  &kp BSPC      &lt 5 SPACE      &none
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
