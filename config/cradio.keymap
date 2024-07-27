@@ -2,8 +2,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// euro sign
-ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/34.h"
+#include "zmk-helpers/unicode-chars/portuguese.dtsi"
+#include "zmk-helpers/unicode-chars/currency.dtsi"
+
 
 // adjust mod-tap
 &mt {
@@ -70,7 +73,7 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
                 &mt LGUI A &mt LALT R &mt LCTRL S &mt LSHFT T &kp G         &kp M      &mt LSHFT N &mt LCTRL E &mt LALT I &mt LGUI O
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?     │
-                &kp Z      &kp X    &mt C_CEDILLA C &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp PERIOD &kp SLASH
+                &kp Z      &kp X    &mt &pt_c_cedilla C &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp PERIOD &kp SLASH
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &lt 1 ENTER  &lt 2 BSPC       &lt 3 SPACE  &lt 4 TAB
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -80,14 +83,14 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
         symb_layer {
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-            //│   á      │    à     │    ã     │    ô     │     ó    │   │  [ {     │  &       │  *       │  (       │  ] }    │
-   &kp A_ACUTE &kp A_GRAVE &accent_a_tilde_macro  &kp O_CIRCUMFLEX &kp O_ACUTE &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR   &kp RBRC
+            //│   á/Á    │    à/À   │   ã/Ã    │   ô/Ô    │   ó/Ó    │   │  [ {     │  &       │  *       │  (       │  ] }    │
+                &pt_aa   &pt_a_grave &pt_a_tilde &pt_o_circumflex &pt_oa   &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR   &kp RBRC
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│  GUI     │  ALT     │  CTRL    │  SHIFT   │  ESC     │   │  +       │  $       │  %       │  ^       │  :      │
                 &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp ESC         &kp PLUS   &kp DLLR   &kp PRCNT  &kp CARET  &kp COLON
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-            //│          │  RALT    │          │  DEL     │    é     │   │  |       │  !       │  @       │  #       │   ~      │
-               &euro_sign  &kp RALT   &none      &kp DEL   &kp E_ACUTE     &kp PIPE   &kp EXCL   &kp AT     &kp HASH   &kp TILDE
+            //│    €     │  RALT    │   â/Â    │  DEL     │   é/É    │   │  |       │  !       │  @       │  #       │   ~      │
+             &curr_euro &kp RALT &pt_a_circumflex &kp DEL &pt_e_acute &kp PIPE   &kp EXCL   &kp AT     &kp HASH   &kp TILDE
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &none      &none          &kp UNDER  &kp RPAR
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
