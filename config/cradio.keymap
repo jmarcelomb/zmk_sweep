@@ -4,8 +4,6 @@
 
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/34.h"
-#include "zmk-helpers/unicode-chars/portuguese.dtsi"
-#include "zmk-helpers/unicode-chars/currency.dtsi"
 
 /*                              34 KEY MATRIX / LAYOUT MAPPING
 
@@ -91,14 +89,14 @@
         symb_layer {
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-            //│   á/Á    │    à/À   │   ã/Ã    │   ô/Ô    │   ó/Ó    │   │  [ {     │  &       │  *       │  (       │  ] }    │
-                &pt_aa   &pt_a_grave &pt_a_tilde &pt_o_circumflex &pt_oa   &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR   &kp RBRC
+            //│          │          │          │          │          │   │  [ {     │  &       │  *       │  (       │   ] }    │
+                 &none      &none      &none      &none      &none         &kp LBRC   &kp AMPS   &kp ASTRK  &kp LPAR   &kp RBRC
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│  GUI     │  ALT     │  CTRL    │  SHIFT   │  ESC     │   │  +       │  $       │  %       │  ^       │  :      │
                 &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp ESC         &kp PLUS   &kp DLLR   &kp PRCNT  &kp CARET  &kp COLON
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-            //│    €     │  RALT    │   â/Â    │  DEL     │   é/É    │   │  |       │  !       │  @       │  #       │   ~      │
-             &curr_euro &kp RALT &pt_a_circumflex &kp DEL &pt_e_acute &kp PIPE   &kp EXCL   &kp AT     &kp HASH   &kp TILDE
+            //│          │  RALT    │          │    DEL   │          │   │  |       │  !       │  @       │  #       │   ~      │
+                 &none      &kp RALT   &none     &kp DEL    &none         &kp PIPE   &kp EXCL   &kp AT     &kp HASH   &kp TILDE
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &none      &none          &kp UNDER  &kp RPAR
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -108,8 +106,8 @@
         numb_layer {
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-            //│PROFILE 0 │PROFILE 1 │PROFILE 2 │ CLEAR BT │          │   │  [       │  7       │  8       │  9       │  ]      │
-             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR &none          &kp LBKT   &kp N7     &kp N8     &kp N9     &kp RBKT
+            //│PROFILE 0 │PROFILE 1 │PROFILE 2 │PROFILE 3 │ CLEAR BT │   │  [       │  7       │  8       │  9       │  ]      │
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR &kp LBKT   &kp N7     &kp N8     &kp N9     &kp RBKT
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│  GUI     │  ALT     │  CTRL    │  SHIFT   │  , <     │   │  =       │  4       │  5       │  6       │  ;      │
                 &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &kp COMMA      &kp EQUAL  &kp N4     &kp N5     &kp N6     &kp SCLN
@@ -126,7 +124,7 @@
             bindings = <
                 //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
                 //│ PG UP    │ HOME     │ UP       │ END      │ INS      │   │          │          │          │          │          │
-                &kp PG_UP  &kp HOME   &kp UP     &kp END    &kp INS         &none      &none      &none      &none      &none
+                &kp PG_UP  &kp HOME   &kp UP     &kp END    &kp INS              &none      &none      &none      &none      &none
                 //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
                 //│ PG DN    │ LEFT     │ DOWN     │ RIGHT    │ CAPS     │   │ K_APP    │ SHIFT    │ CTRL     │ ALT      │ GUI      │
                 &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp CAPS       &kp K_APP  &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI
@@ -143,13 +141,13 @@
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
             //│  F12     │  F7      │  F8      │  F9      │  PSCRN   │   │          │          │          │          │          │
-                &kp F12    &kp F7     &kp F8     &kp F9     &kp PSCRN    &kp C_BRI_UP &kp C_BRI_DEC &kp C_MUTE &kp C_VOLUME_UP &kp C_VOLUME_DOWN
+                &kp F12    &kp F7     &kp F8     &kp F9     &kp PSCRN    &kp C_BRI_DEC &kp C_BRI_UP &kp C_MUTE &kp C_VOLUME_DOWN &kp C_VOLUME_UP
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│  F11     │  F4      │  F5      │  F6      │  SLCK    │   │  K_APP   │  SHIFT   │  CTRL    │  ALT     │  GUI    │
                 &kp F11    &kp F4     &kp F5     &kp F6     &kp SLCK       &kp K_APP  &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
             //│  F10     │  F1      │  F2      │  F3      │  PAUSE   │   │  RALT    │  K_MUTE  │          │play/pause│          │
-                &kp F10    &kp F1     &kp F2     &kp F3     &kp PAUSE_BREAK &kp RALT   &kp K_MUTE &kp C_PREV &kp C_PP  &kp C_NEXT
+                &kp F10    &kp F1     &kp F2     &kp F3 &kp PAUSE_BREAK    &kp RALT  &kp K_MUTE &kp C_PREV &kp C_PP  &kp C_NEXT
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &kp ENTER  &kp BSPC      &none      &none
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
