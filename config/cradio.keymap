@@ -21,22 +21,6 @@
 };
 
 / {
-
-    macros {
-        accent_a_tilde_macro: accent_a_tilde_macro {
-            compatible = "zmk,behavior-macro";
-            label = "accent_a_tilde";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp RALT &kp RSHFT>,
-                <&macro_tap>,
-                <&kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N7>,
-                <&macro_release>,
-                <&kp RSHFT &kp RALT>;
-        };
-    };
-
     combos {
         compatible = "zmk,combos";
         combo_esc {
@@ -53,6 +37,11 @@
             timeout-ms = <50>;
             key-positions = <27 28>;
             bindings = <&kp SEMICOLON>;
+        };
+        combo_del {
+            timeout-ms = <50>;
+            key-positions = <8 9>;
+            bindings = <&kp DEL>;
         };
     };
 
@@ -72,14 +61,14 @@
         base_layer {
             bindings = <
             //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-            //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  ' "    │
+            //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  ' "     │
                 &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp APOS
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-            //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O      │
+            //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
                 &mt LGUI A &mt LALT R &mt LCTRL S &mt LSHFT T &kp G         &kp M      &mt LSHFT N &mt LCTRL E &mt LALT I &mt LGUI O
             //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-            //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?     │
-                &kp Z      &kp X       &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp PERIOD &kp SLASH
+            //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?      │
+                &kp Z      &kp X       &kp C      &kp D      &kp V          &kp K      &kp H    &kp COMMA  &kp PERIOD &kp SLASH
             //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                                 &lt 1 ENTER  &lt 2 BSPC       &lt 3 SPACE  &lt 4 TAB
             //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
